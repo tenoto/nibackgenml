@@ -260,8 +260,16 @@ def run_nibackgen3c50_segment(obsid,dtmin=10.0,dtmax=50.0):
 		cmd += 'arf 1 input/resp/nixtionaxis20170601_combined_v004_xti50_wo14_34.arf\n'
 		cmd += 'setplot energy\n'
 		cmd += 'ignore **-0.2,12.0-**\n'
+		cmd += 'setplot rebin 3 30\n'
 		cmd += 'iplot d\n'
-		cmd += 'hard %s.ps/cps\n' % outfig_basename
+		cmd += 'time off\n'
+		cmd += 'lwid 5 \n'
+		cmd += 'lwid 5 on 1..100\n'
+		cmd += 'lab t ObsID:%s Block:%d, %.1f-%.1f\n' % (obsid,block_num,tstart,tstop)
+		cmd += 'r x 0.2 12.0\n'
+		cmd += 'r y -3.0 3.0\n'
+		cmd += 'lab 1 col 2 lin 0 100 jus left ls 2 pos 0.2 0 " "\n'
+		cmd += 'hard %s.ps/cps\n' % outfig_basename		
 		cmd += 'exit\n'
 		cmd += 'exit\n'
 		print(cmd);os.system(cmd)

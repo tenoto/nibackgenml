@@ -1,3 +1,3 @@
 #!/bin/sh -f
 
-nibackgenml/nibackgen3c50_segment.py 4012010109 100.0 10
+nibackgenml/nibackgen3c50_segment.py 1012010182 100.0 10
